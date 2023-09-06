@@ -30,10 +30,10 @@ go run rv32i.go examples/ex01.asm
 
 シミュレーターを起動後、ブラウザで `http://localhost:8532/` にアクセスすると画面が表示されます。エラーがあるときは標準エラー（ `stderr` ）にメッセージを出力します。
 
+<img width="1290" alt="ex01" src="https://github.com/ystkg/rvsim/assets/134891927/1429f088-8a50-45d2-84ed-5a52a0b24ab9">
 
-
-* 背景色付きの命令を実行した結果、書き込みされた値は<font color="red">赤文字</font>になり、参照された値は<font color="blue">青文字</font>になります
-* 命令アドレスの<font color="red">赤文字</font>と<font color="blue">青文字</font>はジャンプする／しないを表します
+* 背景色付きの命令を実行した結果、書き込みされた値は赤文字になり、参照された値は青文字になります
+* 命令アドレスの赤文字と青文字はジャンプする／しないを表します
 * 符号付き（signed）と符号なし（unsigned）で命令が別々の場合、対象でない値は取り消し線になります
 * レイアウトのデザインは `アセンブリ` `レジスタ` `メインメモリ` の３テーブルを横並びさせるのに十分な表示幅が確保されている状態向けに調整しています
 
@@ -133,7 +133,7 @@ stateDiagram-v2
 
 ### 形式
 
-
+<img width="893" alt="encode" src="https://github.com/ystkg/rvsim/assets/134891927/5640f256-75e4-4ff5-83dc-8e275180a42f">
 
 # 参考資料
 
