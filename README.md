@@ -75,61 +75,45 @@ stateDiagram-v2
 
 ### 命令一覧
 
-| 命令 | 形式 | アセンブリ | 処理 | 備考 |
-| ---- | :---: | ---- | ---- | ---- |
-| ADD   | R | add rd, rs1, rs2 | rd = rs1 + rs2 ||
-| ADDI  | I | addi rd, rs1, immediate | rd = rs1 + immediate | immediateは符号付き12ビット |
-| SUB   | R | sub rd, rs1, rs2 | rd = rs1 - rs2 ||
-| AND   | R | and rd, rs1, rs2 | rd = rs1 & rs2 ||
-| ANDI  | I | andi rd, rs1, immediate | rd = rs1 & immediate | immediateは符号付き12ビット |
-| OR    | R | or rd, rs1, rs2 | rd = rs1 \| rs2 ||
-| ORI   | I | ori rd, rs1, immediate | rd = rs1 \| immediate | immediateは符号付き12ビット |
-| XOR   | R | xor rd, rs1, rs2 | rd = rs1 ^ rs2 ||
-| XORI  | I | xori rd, rs1, immediate | rd = rs1 ^ immediate | immediateは符号付き12ビット |
-| SLL   | R | sll rd, rs1, rs2 | rd = rs1 << rs2 | rs2の下位5ビット |
-| SLLI  | I | slli rd, rs1, shamt | rd = rs1 << shamt | shamtは0以上31以下 |
-| SRL   | R | srl rd, rs1, rs2 | rd = rs1 >> rs2 | 論理シフト。rs2の下位5ビット |
-| SRLI  | I | srli rd, rs1, shamt | rd = rs1 >> shamt | 論理シフト。shamtは0以上31以下 |
-| SRA   | R | sra rd, rs1, rs2 | rd = rs1 >> rs2 | 算術シフト。rs2の下位5ビット |
-| SRAI  | I | srai rd, rs1, shamt | rd = rs1 >> shamt | 算術シフト。shamtは0以上31以下 |
-| SLT   | R | slt rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号付き比較 |
-| SLTU  | R | sltu rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号なし比較 |
-| SLTI  | I | slti rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号付き比較。immediateは符号付き12ビット |
-| SLTIU | I | sltiu rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号なし比較。immediateは符号なし12ビット |
-| LUI   | U | lui rd, immediate | rd = immediate << 12 | immediateは符号なし20ビット |
-| AUIPC | U | auipc rd, immediate | rd = pc + (immediate << 12) | immediateは符号なし20ビット |
-| LB    | I | lb rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイト符号拡張。offsetは符号付き12ビット、省略可 |
-| LBU   | I | lbu rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイトゼロ拡張。offsetは符号付き12ビット、省略可 |
-| LH    | I | lh rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)符号拡張。offsetは符号付き12ビット、省略可 |
-| LHU   | I | lhu rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)ゼロ拡張。offsetは符号付き12ビット、省略可 |
-| LW    | I | lw rd, offset(rs1) | rd = 4 bytes ptr [rs1 + offset] | 4バイト(little-endian)。offsetは符号付き12ビット、省略可 |
-| SB    | S | sb rs2, offset(rs1) | byte ptr [rs1 + offset] = rs2 | 最下位1バイト。offsetは符号付き12ビット、省略可 |
-| SH    | S | sh rs2, offset(rs1) | 2 bytes ptr [rs1 + offset] = rs2 | 最下位2バイト(little-endian)。offsetは符号付き12ビット、省略可 |
-| SW    | S | sw rs2, offset(rs1) | 4 bytes ptr [rs1 + offset] = rs2 | 4バイト(little-endian)。offsetは符号付き12ビット、省略可 |
-| JAL   | J | jal rd, label | rd = pc + 4; pc = label | rd省略時はx1 |
-| JALR  | I | jalr rd, offset(rs1) | rd = pc + 4; pc = pc + rs1 + offset | rd省略時はx1。offsetは符号付き12ビット、省略可 |
-| BEQ   | B | beq rs1, rs2, label | if rs1 == rs2 then pc = label ||
-| BNE   | B | bne rs1, rs2, label | if rs1 != rs2 then pc = label ||
-| BLT   | B | blt rs1, rs2, label | if rs1 < rs2 then pc = label | 符号付き比較 |
-| BLTU  | B | bltu rs1, rs2, label | if rs1 < rs2 then pc = label | 符号なし比較 |
-| BGE   | B | bge rs1, rs2, label | if rs1 ≧ rs2 then pc = label | 符号付き比較 |
-| BGEU  | B | bgeu rs1, rs2, label | if rs1 ≧ rs2 then pc = label | 符号なし比較 |
-
-### 略語早見表
-
-| 名称 | 短縮 |
-| ---- | ---- |
-| Register | R |
-| Immediate | I |
-| Store | S |
-| Branch | B |
-| Upper immediate | U |
-| Unsigned | U |
-| Jump | J |
-| destination register | rd |
-| source register | rs1, rs2 |
-| program counter | pc |
-| shift amount | shamt |
+| 命令 | アセンブリ | 処理 | 備考 |
+| ---- | ---- | ---- | ---- |
+| ADD   | add rd, rs1, rs2 | rd = rs1 + rs2 ||
+| ADDI  | addi rd, rs1, immediate | rd = rs1 + immediate | immediateは符号付き12ビット |
+| SUB   | sub rd, rs1, rs2 | rd = rs1 - rs2 ||
+| AND   | and rd, rs1, rs2 | rd = rs1 & rs2 ||
+| ANDI  | andi rd, rs1, immediate | rd = rs1 & immediate | immediateは符号付き12ビット |
+| OR    | or rd, rs1, rs2 | rd = rs1 \| rs2 ||
+| ORI   | ori rd, rs1, immediate | rd = rs1 \| immediate | immediateは符号付き12ビット |
+| XOR   | xor rd, rs1, rs2 | rd = rs1 ^ rs2 ||
+| XORI  | xori rd, rs1, immediate | rd = rs1 ^ immediate | immediateは符号付き12ビット |
+| SLL   | sll rd, rs1, rs2 | rd = rs1 << rs2 | rs2の下位5ビット |
+| SLLI  | slli rd, rs1, shamt | rd = rs1 << shamt | shamtは0以上31以下 |
+| SRL   | srl rd, rs1, rs2 | rd = rs1 >> rs2 | 論理シフト。rs2の下位5ビット |
+| SRLI  | srli rd, rs1, shamt | rd = rs1 >> shamt | 論理シフト。shamtは0以上31以下 |
+| SRA   | sra rd, rs1, rs2 | rd = rs1 >> rs2 | 算術シフト。rs2の下位5ビット |
+| SRAI  | srai rd, rs1, shamt | rd = rs1 >> shamt | 算術シフト。shamtは0以上31以下 |
+| SLT   | slt rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号付き比較 |
+| SLTU  | sltu rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号なし比較 |
+| SLTI  | slti rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号付き比較。immediateは符号付き12ビット |
+| SLTIU | sltiu rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号なし比較。immediateは符号なし12ビット |
+| LUI   | lui rd, immediate | rd = immediate << 12 | immediateは符号なし20ビット |
+| AUIPC | auipc rd, immediate | rd = pc + (immediate << 12) | immediateは符号なし20ビット |
+| LB    | lb rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイト符号拡張。offsetは符号付き12ビット、省略可 |
+| LBU   | lbu rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイトゼロ拡張。offsetは符号付き12ビット、省略可 |
+| LH    | lh rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)符号拡張。offsetは符号付き12ビット、省略可 |
+| LHU   | lhu rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)ゼロ拡張。offsetは符号付き12ビット、省略可 |
+| LW    | lw rd, offset(rs1) | rd = 4 bytes ptr [rs1 + offset] | 4バイト(little-endian)。offsetは符号付き12ビット、省略可 |
+| SB    | sb rs2, offset(rs1) | byte ptr [rs1 + offset] = rs2 | 最下位1バイト。offsetは符号付き12ビット、省略可 |
+| SH    | sh rs2, offset(rs1) | 2 bytes ptr [rs1 + offset] = rs2 | 最下位2バイト(little-endian)。offsetは符号付き12ビット、省略可 |
+| SW    | sw rs2, offset(rs1) | 4 bytes ptr [rs1 + offset] = rs2 | 4バイト(little-endian)。offsetは符号付き12ビット、省略可 |
+| JAL   | jal rd, label | rd = pc + 4; pc = label | rd省略時はx1 |
+| JALR  | jalr rd, offset(rs1) | rd = pc + 4; pc = pc + rs1 + offset | rd省略時はx1。offsetは符号付き12ビット、省略可 |
+| BEQ   | beq rs1, rs2, label | if rs1 == rs2 then pc = label ||
+| BNE   | bne rs1, rs2, label | if rs1 != rs2 then pc = label ||
+| BLT   | blt rs1, rs2, label | if rs1 < rs2 then pc = label | 符号付き比較 |
+| BLTU  | bltu rs1, rs2, label | if rs1 < rs2 then pc = label | 符号なし比較 |
+| BGE   | bge rs1, rs2, label | if rs1 ≧ rs2 then pc = label | 符号付き比較 |
+| BGEU  | bgeu rs1, rs2, label | if rs1 ≧ rs2 then pc = label | 符号なし比較 |
 
 ### 形式
 
