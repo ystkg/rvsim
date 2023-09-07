@@ -92,10 +92,10 @@ stateDiagram-v2
 | SRLI  | srli rd, rs1, shamt | rd = rs1 >> shamt | 論理シフト。shamtは0以上31以下 |
 | SRA   | sra rd, rs1, rs2 | rd = rs1 >> rs2 | 算術シフト。rs2の下位5ビット |
 | SRAI  | srai rd, rs1, shamt | rd = rs1 >> shamt | 算術シフト。shamtは0以上31以下 |
-| SLT   | slt rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号付き比較 |
-| SLTU  | sltu rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号なし比較 |
-| SLTI  | slti rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号付き比較<br>immediateは符号付き12ビット |
-| SLTIU | sltiu rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号なし比較<br>immediateは符号なし12ビット |
+| SLT   | slt rd, rs1, rs2 | if rs1 < rs2 then rd = 1<br>else rd = 0 | 符号付き比較 |
+| SLTU  | sltu rd, rs1, rs2 | if rs1 < rs2 then rd = 1<br>else rd = 0 | 符号なし比較 |
+| SLTI  | slti rd, rs1, immediate | if rs1 < immediate then rd = 1<br>else rd = 0 | 符号付き比較<br>immediateは符号付き12ビット |
+| SLTIU | sltiu rd, rs1, immediate | if rs1 < immediate then rd = 1<br>else rd = 0 | 符号なし比較<br>immediateは符号なし12ビット |
 | LUI   | lui rd, immediate | rd = immediate << 12 | immediateは符号なし20ビット |
 | AUIPC | auipc rd, immediate | rd = pc + (immediate << 12) | immediateは符号なし20ビット |
 | LB    | lb rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイト符号拡張<br>offsetは符号付き12ビット、省略可 |
