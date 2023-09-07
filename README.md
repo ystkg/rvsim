@@ -94,20 +94,20 @@ stateDiagram-v2
 | SRAI  | srai rd, rs1, shamt | rd = rs1 >> shamt | 算術シフト。shamtは0以上31以下 |
 | SLT   | slt rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号付き比較 |
 | SLTU  | sltu rd, rs1, rs2 | if rs1 < rs2 then rd = 1 else rd = 0 | 符号なし比較 |
-| SLTI  | slti rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号付き比較。immediateは符号付き12ビット |
-| SLTIU | sltiu rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号なし比較。immediateは符号なし12ビット |
+| SLTI  | slti rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号付き比較<br>immediateは符号付き12ビット |
+| SLTIU | sltiu rd, rs1, immediate | if rs1 < immediate then rd = 1 else rd = 0 | 符号なし比較<br>immediateは符号なし12ビット |
 | LUI   | lui rd, immediate | rd = immediate << 12 | immediateは符号なし20ビット |
 | AUIPC | auipc rd, immediate | rd = pc + (immediate << 12) | immediateは符号なし20ビット |
-| LB    | lb rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイト符号拡張。offsetは符号付き12ビット、省略可 |
-| LBU   | lbu rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイトゼロ拡張。offsetは符号付き12ビット、省略可 |
-| LH    | lh rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)符号拡張。offsetは符号付き12ビット、省略可 |
-| LHU   | lhu rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)ゼロ拡張。offsetは符号付き12ビット、省略可 |
-| LW    | lw rd, offset(rs1) | rd = 4 bytes ptr [rs1 + offset] | 4バイト(little-endian)。offsetは符号付き12ビット、省略可 |
-| SB    | sb rs2, offset(rs1) | byte ptr [rs1 + offset] = rs2 | 最下位1バイト。offsetは符号付き12ビット、省略可 |
-| SH    | sh rs2, offset(rs1) | 2 bytes ptr [rs1 + offset] = rs2 | 最下位2バイト(little-endian)。offsetは符号付き12ビット、省略可 |
-| SW    | sw rs2, offset(rs1) | 4 bytes ptr [rs1 + offset] = rs2 | 4バイト(little-endian)。offsetは符号付き12ビット、省略可 |
-| JAL   | jal rd, label | rd = pc + 4; pc = label | rd省略時はx1 |
-| JALR  | jalr rd, offset(rs1) | rd = pc + 4; pc = pc + rs1 + offset | rd省略時はx1。offsetは符号付き12ビット、省略可 |
+| LB    | lb rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイト符号拡張<br>offsetは符号付き12ビット、省略可 |
+| LBU   | lbu rd, offset(rs1) | rd = byte ptr [rs1 + offset] | 1バイトゼロ拡張<br>offsetは符号付き12ビット、省略可 |
+| LH    | lh rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)符号拡張<br>offsetは符号付き12ビット、省略可 |
+| LHU   | lhu rd, offset(rs1) | rd = 2 bytes ptr [rs1 + offset] | 2バイト(little-endian)ゼロ拡張<br>offsetは符号付き12ビット、省略可 |
+| LW    | lw rd, offset(rs1) | rd = 4 bytes ptr [rs1 + offset] | 4バイト(little-endian)<br>offsetは符号付き12ビット、省略可 |
+| SB    | sb rs2, offset(rs1) | byte ptr [rs1 + offset] = rs2 | 最下位1バイト<br>offsetは符号付き12ビット、省略可 |
+| SH    | sh rs2, offset(rs1) | 2 bytes ptr [rs1 + offset] = rs2 | 最下位2バイト(little-endian)<br>offsetは符号付き12ビット、省略可 |
+| SW    | sw rs2, offset(rs1) | 4 bytes ptr [rs1 + offset] = rs2 | 4バイト(little-endian)<br>offsetは符号付き12ビット、省略可 |
+| JAL   | jal rd, label | rd = pc + 4<br> pc = label | rd省略時はx1<br>&nbsp; |
+| JALR  | jalr rd, offset(rs1) | rd = pc + 4<br> pc = pc + rs1 + offset | rd省略時はx1<br>offsetは符号付き12ビット、省略可 |
 | BEQ   | beq rs1, rs2, label | if rs1 == rs2 then pc = label ||
 | BNE   | bne rs1, rs2, label | if rs1 != rs2 then pc = label ||
 | BLT   | blt rs1, rs2, label | if rs1 < rs2 then pc = label | 符号付き比較 |
