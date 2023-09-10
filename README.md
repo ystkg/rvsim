@@ -6,11 +6,11 @@ RV32I（全40命令）のうち37命令に対応しています。
 ## 動作要件
 
 * Go（version 1.21以降）がインストールされていること
- 
+
  例
  ```
  $ go version
-go version go1.21.0 linux/amd64
+go version go1.21.1 linux/amd64
  ```
 
 ## 起動手順
