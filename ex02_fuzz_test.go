@@ -125,8 +125,8 @@ func load64(m []byte, addr int) uint64 {
 	return uint64(m[addr]) |
 		(uint64(m[addr+1]) << 8) |
 		(uint64(m[addr+2]) << 16) |
-		(uint64(m[addr+4]) << 32) |
 		(uint64(m[addr+3]) << 24) |
+		(uint64(m[addr+4]) << 32) |
 		(uint64(m[addr+5]) << 40) |
 		(uint64(m[addr+6]) << 48) |
 		(uint64(m[addr+7]) << 56)
