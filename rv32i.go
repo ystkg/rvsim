@@ -594,7 +594,7 @@ func (sim *Simulator) readFile() [][3]string {
 func splitLine(line string) [3]string {
 	trimed := strings.TrimSpace(line)
 
-	if trimed == "" || (trimed[0] == '.' && strings.Index(trimed, ":") == -1) {
+	if trimed == "" || (trimed[0] == '.' && !strings.Contains(trimed, ":")) {
 		return [3]string{}
 	}
 
@@ -1411,7 +1411,7 @@ func decodeJ(operand string, labelMapping map[string]uint32) (rd int, addr uint3
 }
 
 func decodeJalr(operand string) (rd, rs1 int, offset uint32) {
-	if strings.Index(operand, ",") == -1 {
+	if !strings.Contains(operand, ",") {
 		operand = ra + "," + operand
 	} else if operand[0] == ',' {
 		operand = ra + operand
