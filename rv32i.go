@@ -295,7 +295,7 @@ func NewSimulator(fileName string, entryPoint uint32, singlePage *template.Templ
 		validationError: w,
 	}
 
-	padding := strings.Join(make([]string, max(70, max(labelWidth, operandWidth))+1), "_")
+	padding := strings.Repeat("_", max(70, max(labelWidth, operandWidth))+1)
 
 	const address = len("0x00000000") + 2
 	const label = max(8, min(25, labelWidth))
