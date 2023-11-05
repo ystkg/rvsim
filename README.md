@@ -8,7 +8,8 @@ RV32I（全40命令）のうち37命令に対応しています。
 * Go（version 1.21以降）がインストールされていること
 
 例
-```
+
+```ShellSession
 $ go version
 go version go1.21.3 linux/amd64
 ```
@@ -18,6 +19,7 @@ go version go1.21.3 linux/amd64
 アセンブリのソースファイル名をコマンドライン引数で渡して `rv32i.go` を実行します。
 
 例
+
 ```Shell
 go run rv32i.go examples/ex01.asm
 ```
@@ -122,7 +124,7 @@ stateDiagram-v2
 # 参考資料
 
 * The RISC-V Instruction Set Manual
-  * https://riscv.org/technical/specifications/
+  * <https://riscv.org/technical/specifications/>
     * Volume 1, Unprivileged Specification version 20191213
       * Preface
       * Chapter 1 Introduction
