@@ -9,7 +9,7 @@ RV32I（全40命令）のうち37命令に対応しています。
 
 例
 
-```Shell
+```ShellSession
 $ go version
 go version go1.21.3 linux/amd64
 ```
