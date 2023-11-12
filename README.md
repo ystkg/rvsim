@@ -122,7 +122,7 @@ stateDiagram-v2
 
 <img width="893" alt="encode" src="https://github.com/ystkg/rvsim/assets/134891927/5640f256-75e4-4ff5-83dc-8e275180a42f">
 
-# 参考資料
+## 参考資料
 
 * The RISC-V Instruction Set Manual
   * <https://riscv.org/technical/specifications/>
