@@ -1,17 +1,17 @@
 # RISC-Vシミュレーター
 
 RISC-Vの挙動をブラウザ上で視覚的に確認できるシミュレーターです。
-RV32I（全40命令）のうち37命令に対応しています。
+RV32Iの主要命令に対応しています。
 
 ## 動作要件
 
-* Go（version 1.21以降）がインストールされていること
+* Go（version 1.22以降）がインストールされていること
 
 例
 
 ```ShellSession
 $ go version
-go version go1.21.4 linux/amd64
+go version go1.22.4 linux/amd64
 ```
 
 ## 起動手順
@@ -124,11 +124,5 @@ stateDiagram-v2
 
 ## 参考資料
 
-* The RISC-V Instruction Set Manual
+* The RISC-V Instruction Set Manual Volume 1: Unprivileged ISA
   * <https://riscv.org/technical/specifications/>
-    * Volume 1, Unprivileged Specification version 20191213
-      * Preface
-      * Chapter 1 Introduction
-      * Chapter 2 RV32I Base Integer Instruction Set, Version 2.1
-      * Chapter 24 RV32/64G Instruction Set Listings
-      * Chapter 25 RISC-V Assembly Programmer’s Handbook
