@@ -1,22 +1,26 @@
-# RISC-Vシミュレーター
+# RISC-V simulator
 
 RISC-Vの挙動をブラウザ上で視覚的に確認できるシミュレーターです。
 RV32Iの主要命令に対応しています。
 
 ## 動作要件
 
-* Go（version 1.22以降）がインストールされていること
+* Go（version 1.23以降）がインストールされていること
 
 例
 
 ```ShellSession
 $ go version
-go version go1.22.4 linux/amd64
+go version go1.23.0 linux/amd64
 ```
 
 ## 起動手順
 
 アセンブリのソースファイル名をコマンドライン引数で渡して `rv32i.go` を実行します。
+
+```shellsession
+go run rv32i.go アセンブリファイル名
+```
 
 例
 
@@ -25,7 +29,6 @@ go run rv32i.go examples/ex01.asm
 ```
 
 * シミュレーター本体は1ファイル構成です
-* ビルドして実行することも可能です
 * 複数の引数が渡された場合は先頭を採用します
 
 ## 使い方
