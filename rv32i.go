@@ -1295,8 +1295,8 @@ func (sim *Simulator) executeCurrent() *Effect {
 		addr = x[rs1] + offset
 		writeBytes = memoryBytes(mnemonic)
 		val := x[rs2]
-		for i := 0; i < writeBytes; i++ {
-			sim.writeMemory(addr+uint32(i), byte(val>>(i*8))) // little-endian
+		for i := range uint32(writeBytes) {
+			sim.writeMemory(addr+i, byte(val>>(i*8))) // little-endian
 		}
 	case "jal":
 		rd, addr = decodeJ(operand, sim.labelMapping)
@@ -1474,7 +1474,7 @@ func addresses(addr uint32, bytes int) []uint32 {
 		return nil
 	}
 	addrs := []uint32{}
-	for i := uint32(0); i < uint32(bytes); i++ {
+	for i := range uint32(bytes) {
 		addrs = append(addrs, addr+i)
 	}
 	return addrs
