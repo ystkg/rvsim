@@ -49,22 +49,6 @@ go run rv32i.go examples/ex01.asm
 | STOP   | プログラムを停止し、レジスタとメインメモリの内容をクリアします |
 | RELOAD | アセンブリのソースファイルをリロードします |
 
-```mermaid
-stateDiagram-v2
-    [*]      --> standby
-    [*]      --> ready
-    standby  --> standby:  [RELOAD]
-    standby  --> ready:    [RELOAD]
-    ready    --> executed: [RUN]
-    ready    --> running:  [STEP]
-    ready    --> ready:    [RELOAD]
-    ready    --> standby:  [RELOAD]
-    running  --> executed: [RUN][STEP]
-    running  --> running:  [STEP]
-    running  --> ready:    [STOP]
-    executed --> ready:    [STOP]
-```
-
 ## 仕様
 
 * RV32Iのうち `ECALL` / `EBREAK` / `FENCE` の3命令は未対応です
