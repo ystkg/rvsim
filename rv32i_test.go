@@ -481,7 +481,7 @@ func TestSplitLine(t *testing.T) {
 		splited := splitLine(v.line)
 		definedLabel, mnemonic, operand := splited[0], splited[1], splited[2]
 		if definedLabel != v.definedLabel || mnemonic != v.mnemonic || operand != v.operand {
-			t.Errorf(v.line)
+			t.Error(v.line)
 		}
 	}
 }

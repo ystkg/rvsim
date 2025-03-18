@@ -3,15 +3,15 @@
 RISC-Vの挙動をブラウザ上で視覚的に確認できるシミュレーターです。
 RV32Iの主要命令に対応しています。
 
-## 動作要件
+## 推奨環境
 
-* Go（version 1.23以降）がインストールされていること
+* Go（version 1.24以降）がインストールされていること
 
 例
 
 ```ShellSession
 $ go version
-go version go1.23.0 linux/amd64
+go version go1.24.1 linux/amd64
 ```
 
 ## 起動手順
