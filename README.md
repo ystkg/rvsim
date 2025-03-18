@@ -3,15 +3,15 @@
 RISC-Vの挙動をブラウザ上で視覚的に確認できるシミュレーターです。
 RV32Iの主要命令に対応しています。
 
-## 動作要件
+## 推奨環境
 
-* Go（version 1.23以降）がインストールされていること
+* Go version 1.24以降
 
 例
 
 ```ShellSession
 $ go version
-go version go1.23.0 linux/amd64
+go version go1.24.1 linux/amd64
 ```
 
 ## 起動手順
@@ -111,5 +111,6 @@ go run rv32i.go examples/ex01.asm
 
 ## 参考資料
 
-* The RISC-V Instruction Set Manual Volume 1: Unprivileged ISA
-  * <https://riscv.org/technical/specifications/>
+* The RISC-V Instruction Set Manual Volume I: Unprivileged ISA
+  * <https://riscv.org/>
+  * <https://github.com/riscv>
