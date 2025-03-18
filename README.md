@@ -111,5 +111,6 @@ go run rv32i.go examples/ex01.asm
 
 ## 参考資料
 
-* The RISC-V Instruction Set Manual Volume 1: Unprivileged ISA
-  * <https://riscv.org/technical/specifications/>
+* The RISC-V Instruction Set Manual Volume I: Unprivileged ISA
+  * <https://riscv.org/>
+  * <https://github.com/riscv>
